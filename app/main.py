@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.config import get_settings
 from app.database import engine, Base
-from app.routers import auth, projects, posts, skills, experience, contact, views, chat, upload
+from app.routers import auth, projects, posts, skills, experience, contact, views, chat, upload, cv
 
 settings = get_settings()
 
@@ -43,6 +43,7 @@ app.include_router(contact.router, prefix=PREFIX)
 app.include_router(views.router, prefix=PREFIX)
 app.include_router(chat.router, prefix=PREFIX)
 app.include_router(upload.router, prefix=PREFIX)
+app.include_router(cv.router, prefix=PREFIX)
 
 
 @app.get("/health")
